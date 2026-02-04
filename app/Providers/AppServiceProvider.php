@@ -21,9 +21,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Forzar URLs con HTTPS (necesario detrás de reverse proxy como EasyPanel)
-        if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ||
-            isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+        // Forzar URLs con HTTPS en producción
+        if ($this->app->environment('production')) {
             URL::forceScheme('https');
         }
 

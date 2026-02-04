@@ -107,7 +107,7 @@ export default function Dashboard({ productos, filters }) {
                                 </button>
                             </div>
 
-                            {/* BUSQUEDA */}
+                          
                             <form onSubmit={handleSearch} className="mb-4">
                                 <input
                                     type="text"
@@ -124,14 +124,13 @@ export default function Dashboard({ productos, filters }) {
                                 </button>
                             </form>
 
-                            {/* TABLA */}
-                            <ProductosTabla
+                              <ProductosTabla
                                 productos={productos.data}
                                 onEditar={abrirModalEditar}
                                 onEliminar={handleEliminar}
                             />
 
-                            {/* PAGINACION */}
+                          
                             <Paginacion links={productos.links} />
                         </div>
                     </div>
